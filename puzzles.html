@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Picross Game Maker</title>
+	<meta name="description" content="An interactive Picross maker.">
+	<link href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded:500" rel="stylesheet">
+	<link rel="stylesheet" href="picross.css">
+</head>
+
+<body>
+	<div id="content-container">
+		<div id="header">
+			<h1>Welcome to the Picross Game!</h1>
+			<p>Choose a puzzle to play. Or <a href="index.html">go back to make your own.</a></p>
+		</div>
+
+		<div class="dropdown">
+			<button onclick="showPuzzles()" class="dropbtn">Select Puzzle Category</button>
+			<div id="puzzleDropdown" class="dropdown-content">
+				<p>10 x 10</p>
+				<p>15 x 15</p>
+				<p>20 x 20</p>
+			</div>
+
+
+		</div>
+		<br><br>
+		<div id="puzzle-container">
+			<p>Puzzle goes here</p>
+		</div>
+	</div>
+	<div id="footer">
+
+		<img src="logo.jpg" style="width:150px;height=150px;">
+		<p>This project was inspired by my obsession with Picross S on Nintendo Switch &copy; 2017 Nintendo</p>
+		<p>Page Created by Brandon Litwin &copy; 2018</p>
+
+	</div>
+	<script>
+		/* When the user clicks on the button, 
+						toggle between hiding and showing the dropdown content */
+		function showPuzzles() {
+			document.getElementById("puzzleDropdown").classList.toggle("show");
+		}
+
+		// Close the dropdown menu if the user clicks outside of it
+		window.onclick = function(event) {
+			if (!event.target.matches('.dropbtn')) {
+
+				var dropdowns = document.getElementsByClassName("dropdown-content");
+				var i;
+				for (i = 0; i < dropdowns.length; i++) {
+					var openDropdown = dropdowns[i];
+					if (openDropdown.classList.contains('show')) {
+						openDropdown.classList.remove('show');
+					}
+				}
+			}
+		}
+	</script>
+</body>
+
+</html>
