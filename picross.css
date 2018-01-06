@@ -96,7 +96,7 @@ body {
 
 #puzzle-container {
 	position: relative;
-	outline: 2px solid #000000;
+	/*outline: 2px solid #000000;*/
 	top: 30px;
 	border: none;
 	font-size: 0;
@@ -109,11 +109,16 @@ body {
 }
 
 .grid {
-	margin:0;
+	/*margin:0;
 	padding:0;
-	border:none;
+	border:none;*/
 	outline:1px solid #000;
 	display:inline-block;
+	cursor: pointer;
+}
+
+.squareClicked {
+	background-color: black;
 }
 
 #footer {

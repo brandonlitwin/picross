@@ -7,8 +7,8 @@
 	<title>Picross Game Maker</title>
 	<meta name="description" content="An interactive Picross maker.">
 	<link href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded:500" rel="stylesheet">
-	<link rel="stylesheet" href="picross.css">
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="picross.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -30,7 +30,7 @@
 		</div>
 		<br><br>
 		<div id="puzzle-container">
-			<!--p id="choice">Puzzle goes here</p-->
+			<!--Puzzle goes here-->
 		</div>
 	</div>
 	<div id="footer">
@@ -41,7 +41,8 @@
 
 	</div>
 	<script>
-		/* When the user clicks on the button, toggle between hiding and showing the dropdown content */
+		var gridId = "";
+
 		function showPuzzleMenu() {
 			document.getElementById("puzzleDropdown").classList.toggle("show");
 		};
@@ -51,58 +52,27 @@
 			// Loop that builds a grid in the container
 			for (var rows = 0; rows < s; rows++) {
 				for (var columns = 0; columns < s; columns++) {
-					$("#puzzle-container").append("<div class='grid'></div>");
+					gridId = rows + "," + columns;
+					$("#puzzle-container").append("<div id=id class='grid' onclick=squareClicked();></div>");
+					$('#id').attr('id', gridId);
+					$('#id').attr('clicked', '0');
 				};
+
 			};
 			$(".grid").width(450 / s);
 			$(".grid").height(450 / s);
 
 		};
-		// function that clears the grid
-		/*function clearGrid() {
-			$(".grid").remove();
-		};
 
-		// function that prompts the user to select the number of boxes in a new grid
-		// the function then also creates that new grid
-		function refreshGrid() {
-			var z = prompt("How many boxes per side?");
-			clearGrid();
-			createGrid(z);
-		};
+		function squareClicked() {
+			$(function() {
+				$(".grid").off().on("click", function() {
+					$(this).toggleClass("squareClicked");
+				});
 
-		// create a 16x16 grid when the page loads
-		// creates a hover effect that changes the color of a square to black when the mouse passes over it, leaving a (pixel) trail through the grid
-		// allows the click of a button to prompt the user to create a new grid*/
-		//$(document).ready(function() {
-		//createGrid(16);
-
-		$(".grid").mouseover(function() {
-			$(this).css("background-color", "black");
-		});
-
-		$(".newGrid").click(function() {
-			refreshGrid();
-
-			$(".grid").mouseover(function() {
-				$(this).css("background-color", "black");
 			});
-		});
-		//});
 
-
-		/*if (s == 10) {
-			document.getElementById('choice').innerHTML = "You selected a 10 x 10 puzzle.";
-		}
-
-		if (s == 15) {
-			document.getElementById('choice').innerHTML = "You selected a 15 x 15 puzzle.";
-		}
-
-		if (s == 20) {
-			document.getElementById('choice').innerHTML = "You selected a 20 x 20 puzzle.";
-		}*/
-
+		};
 
 
 		// Close the dropdown menu if the user clicks outside of it
@@ -119,7 +89,6 @@
 				}
 			}
 		}
-
 	</script>
 </body>
 
