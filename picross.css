@@ -100,8 +100,8 @@ body {
 	top: 30px;
 	/*border: none;*/
 	font-size: 0;
-	height: 450px;
-	width: 450px;
+	height: 490px;
+	width: 490px;
 	margin: auto;
 	padding: 0;
 	/*margin-left: 20px;
@@ -111,18 +111,18 @@ body {
 
 #numbersContainer {
 	/*position: relative;*/
-	height: 500px;
-	width: 500px;
+	height: 540px;
+	width: 540px;
 	margin: auto;
 	padding: 0;
 	display: none;
 }
 
 #topNumbers {
-	background-color: gray;
+	background-color: rgb(231, 170, 101);
 	/*display: block;*/
 	height: 50px;
-	width: 450px;
+	/*width: 490px;*/
 	position: relative;
 	margin: auto;
 	padding: 0;
@@ -133,11 +133,11 @@ body {
 }
 
 #leftNumbers {
-	background-color: gray;
+	background-color: rgb(231, 170, 101);
 	/*display: block;*/
 	float: left;
 	position: relative;
-	height: 450px;
+	/*height: 490px;*/
 	width: 50px;
 	/*margin: auto;*/
 	padding: 0;
@@ -151,7 +151,16 @@ body {
 	/*margin:0;
 	padding:0;
 	border:none;*/
-	outline:1px solid #000;
+	border:1px solid black;
+	display:inline-block;
+	cursor: pointer;
+}
+
+.gridInnerBorder {
+	/*outline:1px solid rgb(51, 48, 48);*/
+	border:1px solid rgb(51, 48, 48);	
+	border-color: red;
+	/*border-right-color: yellow;*/
 	display:inline-block;
 	cursor: pointer;
 }

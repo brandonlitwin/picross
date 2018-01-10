@@ -6,14 +6,30 @@ var gridId = "";
 		}
 
 		function createPuzzle(s) {
-			//$("#numbersContainer").toggleClass("show");	
+			if (s == 10) {
+				$('#topNumbers').css("width", "470");
+				$('#topNumbers').css("right", "2%");
+				$('#leftNumbers').css("height", "470");
+			} else if (s == 15) {
+				$('#topNumbers').css("width", "480");
+				$('#topNumbers').css("right", "1%");
+				$('#leftNumbers').css("height", "480");
+			} else if (s == 20) {
+				$('#topNumbers').css("width", "490");
+				$('#leftNumbers').css("height", "490");
+			}	
 			$("#numbersContainer").show();
-			//document.getElementById("numbersContainer").classList.toggle("show");
 			// Loop that builds a grid in the container
 			for (var rows = 0; rows < s; rows++) {
 				for (var columns = 0; columns < s; columns++) {
 					gridId = rows + "," + columns;
 					$("#puzzle-container").append("<div id=id class='grid' onclick=squareClicked();></div>");
+					if (columns == 5 || columns == 10 || columns == 15) {
+						$("#id").css("border-left-color", "rgb(231, 170, 101)");
+					} 
+					if (rows == 5 || rows == 10 || rows == 15) {
+						$("#id").css("border-top-color", "rgb(231, 170, 101)");
+					}
 					$('#id').attr('id', gridId);
 					$('#id').attr('clicked', '0');
 				}
