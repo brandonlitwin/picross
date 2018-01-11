@@ -132,6 +132,13 @@ body {
 	right: 60%;*/
 }
 
+#topNumbers p {
+	position: relative;
+	width: 47px;
+	display: inline-block;
+	text-align: center;
+}
+
 #leftNumbers {
 	background-color: rgb(231, 170, 101);
 	/*display: block;*/
@@ -144,8 +151,19 @@ body {
 	border: none;
 	top: 30px;
 	margin-left: -7%;
-	
 }
+
+#leftNumbers p {
+	position: relative;
+	height: 30px;
+	text-align: center;
+}
+
+/*.hintNumbers {
+	display: inline-block;
+	position: relative;
+	float: left;
+}*/
 
 .grid {
 	/*margin:0;

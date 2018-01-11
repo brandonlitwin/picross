@@ -1,16 +1,16 @@
 var gridId = "";
-//:P face
+//boots
 var puzzle1 = [
-	[1, 1, 1, 0, 0, 0, 0, 1, 1, 1],
-	[1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-	[0, 0, 0, 1, 0, 0, 1, 0, 0, 0],
-	[0, 0, 0, 1, 0, 0, 1, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-	[0, 0, 1, 0, 0, 0, 0, 1, 0, 0],
-	[0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
-	[0, 0, 0, 1, 0, 0, 1, 0, 0, 0],
-	[0, 0, 0, 1, 0, 0, 1, 0, 0, 0],
-	[0, 0, 0, 1, 1, 1, 1, 0, 0, 0]
+	[0, 0, 1, 1, 1, 1, 1, 1, 0, 0],
+	[0, 0, 1, 0, 0, 0, 1, 1, 1, 1],
+	[0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+	[0, 0, 0, 1, 0, 0, 1, 1, 1, 1],
+	[0, 0, 0, 1, 0, 0, 1, 0, 0, 1],
+	[0, 1, 1, 1, 0, 0, 1, 0, 0, 1],
+	[1, 0, 0, 0, 0, 1, 1, 1, 0, 1],
+	[0, 0, 0, 1, 1, 0, 0, 0, 0, 0],
+	[1, 1, 1, 1, 0, 0, 0, 0, 0, 1],
+	[0, 0, 0, 1, 1, 1, 1, 1, 1, 0]
 ];
 
 var leftHintNumbers = [[], [], [], [], [], [], [], [], [], []];
@@ -94,7 +94,7 @@ function addHintNumbers(s, selectedPuzzle) {
 	//Add left numbers
 	for (var rows = 0; rows < s; rows++) {
 		$('#leftNumbers').append("<p id=leftid class='hintNumber'></p>");
-		$('#leftid').append(leftHintNumbers[rows]);
+		$('#leftid').append(leftHintNumbers[rows] + "");
 		$('#leftid').attr('id', rows);
 	}
 	//count top numbers
@@ -103,13 +103,13 @@ function addHintNumbers(s, selectedPuzzle) {
 		for (var rows = 0; rows < s; rows++) {
 			var gridState = selectedPuzzle[rows][columns]; //check state of square in puzzle array
 			//var i = 0;
-			console.log("state is " + gridState);
+			//console.log("state is " + gridState);
 			if (gridState == 1) {
 				countTop++; //update count of top nums
-				console.log("count is " + countTop);
+				//console.log("count is " + countTop);
 			} else {
 				if (countTop > 0) {
-					console.log("here");
+					//console.log("here");
 					topHintNumbers[columns].push(countTop);
 					//console.log(hintNumbers[columns]);
 					countTop = 0;
@@ -129,7 +129,7 @@ function addHintNumbers(s, selectedPuzzle) {
 	//Add top numbers
 	for (var columns = 0; columns < s; columns++) {
 		$('#topNumbers').append("<p id=topid class='hintNumber'></p>");
-		$('#topid').append(topHintNumbers[columns]);
+		$('#topid').append(topHintNumbers[columns] + "");
 		$('#topid').attr('id', columns);
 	}
 
