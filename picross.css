@@ -156,15 +156,6 @@ body {
 	cursor: pointer;
 }
 
-.gridInnerBorder {
-	/*outline:1px solid rgb(51, 48, 48);*/
-	border:1px solid rgb(51, 48, 48);	
-	border-color: red;
-	/*border-right-color: yellow;*/
-	display:inline-block;
-	cursor: pointer;
-}
-
 .squareClicked {
 	background-color: black;
 }
