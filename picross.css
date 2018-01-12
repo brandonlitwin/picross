@@ -189,6 +189,9 @@ body {
 .squareClicked {
 	background-color: black;
 }
+.squareRClicked {
+	background-color: darkgray;
+}
 
 #footer {
 	position: relative;
