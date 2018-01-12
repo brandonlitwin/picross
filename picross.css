@@ -128,14 +128,19 @@ body {
 	padding: 0;
 	border: none;
 	top: 20px;
+	display: table;
 	/*float: right;
 	right: 60%;*/
 }
 
 #topNumbers p {
 	position: relative;
-	width: 47px;
-	display: inline-block;
+	outline: solid black;
+	outline-width: 1px;
+	padding: 0;
+	/*width: 47px;*/
+	/*display: inline-block;*/
+	display: table-cell;
 	text-align: center;
 }
 
@@ -144,6 +149,7 @@ body {
 	/*display: block;*/
 	float: left;
 	position: relative;
+	/*display: table;
 	/*height: 490px;*/
 	width: 50px;
 	/*margin: auto;*/
@@ -155,13 +161,19 @@ body {
 
 #leftNumbers p {
 	position: relative;
-	height: 30px;
+	/*outline: solid black;
+	outline-width: 1px;
+	/*display: table-cell;
+	border: solid black;
+	border-width: 10%;
+	padding: 0;
+	/*height: 30px;*/
 	text-align: center;
 }
 
 /*.hintNumbers {
 	display: inline-block;
-	position: relative;
+	/*position: relative;
 	float: left;
 }*/
 

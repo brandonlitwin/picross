@@ -12,9 +12,26 @@ var puzzle1 = [
 	[1, 1, 1, 1, 0, 0, 0, 0, 0, 1],
 	[0, 0, 0, 1, 1, 1, 1, 1, 1, 0]
 ];
-
-var leftHintNumbers = [[], [], [], [], [], [], [], [], [], []];
-var topHintNumbers = [[], [], [], [], [], [], [], [], [], []];
+//star
+var puzzle2 = [
+	[0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,],
+	[0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0,],
+	[0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0,],
+	[0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0,],
+	[0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0,],
+	[1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,],
+	[1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1,],
+	[0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0,],
+	[0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0,],
+	[0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,],
+	[0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,],
+	[0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0,],
+	[0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0,],
+	[0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0,],
+	[0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0,],
+];
+var leftHintNumbers = [];
+var topHintNumbers = [];
 
 function showPuzzleMenu() {
 	document.getElementById("puzzleDropdown").classList.toggle("show");
@@ -22,20 +39,36 @@ function showPuzzleMenu() {
 }
 
 function createPuzzle(s, n) {
+	//destroy old grid
+	for (var rows = 0; rows < s; rows++) {
+		for (var columns = 0; columns < s; columns++) {
+			$("#puzzle-container").children(".grid").remove();
+			$("#topNumbers").children("p").remove();
+			$("#leftNumbers").children("p").remove();
+		}
+	}
 	if (n == 1) {
 		selectedPuzzle = puzzle1;
+	} else if (n == 2) {
+		selectedPuzzle = puzzle2;
 	}
 	if (s == 10) {
-		$('#topNumbers').css("width", "470");
+		leftHintNumbers = [[], [], [], [], [], [], [], [], [], []];
+		topHintNumbers = [[], [], [], [], [], [], [], [], [], []];
+		$('#topNumbers').css("width", "470px");
 		$('#topNumbers').css("right", "2%");
-		$('#leftNumbers').css("height", "470");
+		$('#leftNumbers').css("height", "470px");
 	} else if (s == 15) {
-		$('#topNumbers').css("width", "480");
+		leftHintNumbers = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
+		topHintNumbers = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []];	
+		$('#topNumbers').css("width", "480px");
 		$('#topNumbers').css("right", "1%");
-		$('#leftNumbers').css("height", "480");
+		$('#leftNumbers').css("height", "480px");
 	} else if (s == 20) {
-		$('#topNumbers').css("width", "490");
-		$('#leftNumbers').css("height", "490");
+		leftHintNumbers = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];
+		topHintNumbers = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []];	
+		$('#topNumbers').css("width", "490px");
+		$('#leftNumbers').css("height", "490px");
 	}
 	$("#numbersContainer").show();
 	// Loop that builds a grid in the container
@@ -94,8 +127,15 @@ function addHintNumbers(s, selectedPuzzle) {
 	//Add left numbers
 	for (var rows = 0; rows < s; rows++) {
 		$('#leftNumbers').append("<p id=leftid class='hintNumber'></p>");
-		$('#leftid').append(leftHintNumbers[rows] + "");
+		$('#leftid').append(leftHintNumbers[rows] + " ");
 		$('#leftid').attr('id', rows);
+		if (s == 10) {
+			$('#leftNumbers p').css('height', '6.5%');
+		} else if (s == 15) {
+		$('#leftNumbers p').css('height', '3.05%');
+		} else if (s == 20) {
+			$('#leftNumbers p').css('height', '5%');
+		}	
 	}
 	//count top numbers
 	for (var columns = 0; columns < s; columns++) {
@@ -129,8 +169,15 @@ function addHintNumbers(s, selectedPuzzle) {
 	//Add top numbers
 	for (var columns = 0; columns < s; columns++) {
 		$('#topNumbers').append("<p id=topid class='hintNumber'></p>");
-		$('#topid').append(topHintNumbers[columns] + "");
+		$('#topid').append(topHintNumbers[columns] + " ");
 		$('#topid').attr('id', columns);
+		if (s == 10) {
+			$('#topNumbers p').css('width', '10%');
+		} else if (s == 15) {
+			$('#topNumbers p').css('width', '6.67%');
+		} else if (s == 20) {
+			$('#topNumbers p').css('width', '5%');
+		}
 	}
 
 }
